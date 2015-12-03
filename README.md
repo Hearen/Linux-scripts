@@ -1,11 +1,7 @@
-/*******************************************
-    Author: LHearen
-    E-mail: LHearen@126.com
-    Time  :	2015-12-03 20:08
-    Description: 
-    Source: 
-*******************************************/
-
+#Contact
+Author: LHearen
+E-mail: LHearen@126.com
+Time  :	2015-12-03 20:08
 # Linux-scripts
 Used to automate some big task in linux environment
 
@@ -105,15 +101,23 @@ After your installing the custom system, the network might not be initialized an
 
 So at this very moment you can cd /etc/sysconfig/network-scripts/ and open the local network configuration file - mine is ifcfg-eth0, and change the 'ONBOOT' to yes and add HWADDR='your current MAC address', which can be retrieved by command 'ip a or ip addr'; and at last you should restart your network by 'service network restart'. Now if everything works right, you can ping youku.com for further test. Good luck!
 
+###############
 #auto-installer
+###############
 Used to configure Tcl and install expect on CentOS 7 - sadly this process can be easily achieved by apt-get or yum in most platforms;
 
+###############
 #nfs-configurer
+###############
 Used to configure NFS service and enable sharing files with remotes much easier;
 
+######
 #tools
+######
 This folder holds many convenient small tools to ease the burden of my daily tasks;
 
+########
 #Summary
+########
 All those shell scripts are made up for personal use, if they can ever help you a little bit, I will be much flattered. 
 P.S. If there are some bad points inside, please do not hesitate to contact me and tell me about it. So many thanks in advance.

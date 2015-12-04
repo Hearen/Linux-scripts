@@ -59,10 +59,11 @@ function server_configure {
 
     echo
     read -p "Input the host address you want to share: [regular expression supported]" host
-    
-    while [ $(ip_checker $host) -gt 0 ]
+    ip_checker $host 
+    while [ $? -gt 0 ]
     do
         read -p "Input Error! Try again: " host
+        ip_checker $host 
     done
 
     if [ $1 = "replace" ]

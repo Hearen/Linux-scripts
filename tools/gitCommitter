@@ -1,6 +1,6 @@
 #!/usr/bin/expect
 set message [lindex $argv 0];
-spawn git commit -m "$message"
+spawn git commit -m '$message'
 expect "Username" {send "Hearen\r"}
 expect "Password" {send "520 Noodle\r"}
 interact

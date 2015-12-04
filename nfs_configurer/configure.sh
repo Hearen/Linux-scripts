@@ -60,9 +60,9 @@ function server_configure {
     echo
     read -p "Input the host address you want to share: [regular expression supported]" host
     
-    while [ ! $(ip_checker $host) ]
+    while [ $(ip_checker $host) -gt 0 ]
     do
-        read -p "Input a right valid host address you want to share: [regular expression supported]" host
+        read -p "Input Error! Try again: " host
     done
 
     if [ $1 = "replace" ]
@@ -95,7 +95,7 @@ echo "To make the program run as it's planned, you have to gain root privilege f
 echo 
 echo "If you have configured NFS server before, and want to share a file now. [1]"
 echo
-echo "If you have set up NFS server already and want to add ANOTHER sharing file. [2]"
+echo "Just want add ANOTHER to share. [2]"
 echo
 echo "If you are new to NFS, and try to set up your FIRST NFS server and start to share files. [3]"
 echo

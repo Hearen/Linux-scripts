@@ -45,12 +45,6 @@ function check_env {
 #Configure the sharing directory and host
 #########################################
 function server_configure {
-    check_permission
-    if [ $? -gt 0 ]
-    then 
-        exit 1
-    fi
-    echo
     read -p "Input the directory you try to share with remotes: [abosulte path]" path
     while [ -z "$path" ] || [ ! -e $path ]
     do
@@ -88,6 +82,12 @@ function server_configure {
 
 #server_configure 
 
+check_permission
+if [ $? -gt 0 ]
+then 
+    exit 1
+fi
+echo
 echo 
 clear
 echo "Welcome to set up the NFS server automatically in this system."
@@ -96,7 +96,7 @@ echo "To make the program run as it's planned, you have to gain root privilege f
 echo 
 echo "If you have configured NFS server before, and want to share a file now. [1]"
 echo
-echo "Just want add ANOTHER to share. [2]"
+echo "Just want to add ANOTHER to share. [2]"
 echo
 echo "If you are new to NFS, and try to set up your FIRST NFS server and start to share files. [3]"
 echo

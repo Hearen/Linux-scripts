@@ -3,7 +3,7 @@ Author: LHearen
 E-mail: LHearen@126.com
 Time  :	2015-12-03 20:08
 # Linux-scripts
-Used to automate some big task in linux environment
+Used to automate some big tasks in linux environment
 
 #ISOMaker Introduction
 ##################################################
@@ -119,6 +119,17 @@ With this little tool, you can easily configure nfs-server and share your local 
 #tools
 ######
 This folder holds many convenient small tools to ease the burden of my daily tasks;
+
+They are currently consisting of:
+* capsOverlapper + speedswapper           - disable CapsLock and set it to ESC
+* ip_checker                              - used to check the regx's validity
+* color                                   - check the color usage in shell
+* dialog_progress + progressbar + spinner - all are used to indicate the running status in shell
+* sudo                                    - used to gain root privilege much easier by expect command
+* my_ssh                                  - used to login the remote client and 'cd' to a certain working directory
+* login                                   - used to automatically log in the authentication page in LAN
+* firefox                                 - can set several frequently visisted pages to access
+* pool_management_configurer              - configure my personal pool management environment automatically
 
 ########
 #Summary

@@ -1,4 +1,3 @@
-# Contact
 * Author: LHearen
 * E-mail: LHearen@126.com
 

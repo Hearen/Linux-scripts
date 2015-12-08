@@ -1,7 +1,6 @@
-# Contact
 * Author: LHearen
 * E-mail: LHearen@126.com, luosonglei14@otcaix.iscas.ac.cn
-----------------------------------------------------------
+
 This file is used to explain how to make a custom ISO via basic commands based on minimal CentOS 7
 
 ##################################################

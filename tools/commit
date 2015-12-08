@@ -1,0 +1,7 @@
+#!/usr/bin/expect
+set message [lindex $argv 0];
+spawn git commit -a -m '$message'
+spawn git push origin master
+expect "Username" {send "userName\r"}
+expect "Password" {send "password\r"}
+interact

@@ -6,7 +6,7 @@
 # Description: Used to automate git committing 
 #-------------------------------------------
 set message [lindex $argv 0];
-spawn git commit -m '$message'
+spawn git commit -m $message
 spawn git push origin master
 expect "Username" {send "userName\r"}
 expect "Password" {send "passworkd\r"}

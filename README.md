@@ -109,7 +109,11 @@ Used to configure Tcl and install expect on CentOS 7 - sadly this process can be
 ###############
 #nfs-configurer
 ###############
+As you may know, the nfs - abbreviated from Network File System is a distributed file system protocol enable a client can access files in the remotes much like local files.
+
 Used to configure NFS service and enable sharing files with remotes much easier;
+
+With this little tool, you can easily configure nfs-server and share your local files with certain remotes which can be configured by the hostname part - regx supported for a range of hosts.
 
 ######
 #tools

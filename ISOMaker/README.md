@@ -1,12 +1,11 @@
-########################
-#Author: LHearen
-#E-mail: LHearen@126.com, luosonglei14@otcaix.iscas.ac.cn
-########################
-
+# Contact
+* Author: LHearen
+* E-mail: LHearen@126.com, luosonglei14@otcaix.iscas.ac.cn
+----------------------------------------------------------
 This file is used to explain how to make a custom ISO via basic commands based on minimal CentOS 7
 
 ##################################################
-#Section 1: Basic Rules to Make a Custom CentOS 7 
+### Section 1: Basic Rules to Make a Custom CentOS 7 
 ##################################################
 1) You have to firstly install minimal version of centos 7 via Virtual Machine Manager using a iso file of centos 7; remember to connect the network otherwise it will be uneasy to set it in shell environment; 
 
@@ -30,7 +29,7 @@ P.S. If there is something wrong about the source packages, find it in /mnt/cdro
 
 
 ########################################################################
-#Section 2: Files Specification
+### Section 2: Files Specification
 ########################################################################
 This part is used to specify the structure and details of this program
 
@@ -83,7 +82,7 @@ the details is specified in their corresponding comments and the output;
 8) isolinux.cfg is where you can customize the titles and labels presented when installing the custom ISO.
 
 #############################
-#Section 3 Installation
+### Section 3 Installation
 #############################
 git clone https://git.oschina.net/lhearen/ISOMaker.git
 
@@ -94,7 +93,7 @@ cd ISOMaker
 Now it's time to follow the program to finish the rest of the work. Good luck!
 
 ##############################################
-#Section 4 Possible problems and solutions
+### Section 4 Possible problems and solutions
 ##############################################
 After your installing the custom system, the network might not be initialized and started and as a result network may be unavailable at that time.
 

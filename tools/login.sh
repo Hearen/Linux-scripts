@@ -9,16 +9,15 @@ function login_network {
     password=${2-111111}
     while [ 1 ]
     do
-        tmp=$(mktemp curl_tmp.XXX)
-        echo "Using a fixed account to login - simulating browser login process."
+        tmp=$(mktemp curlTmp.XXX)
         echo "curl -d 'username=$userName&password=$password&pwd=$password&secret=true' http://133.133.133.150/webAuth/ >$tmp 2>/dev/null"
         curl -d "username=$userName&password=$password&pwd=$password&secret=true" http://133.133.133.150/webAuth/ >$tmp 2>/dev/null
         result=$(cat $tmp | sed -n '/authfailed/p')
         if [ ! -s "$tmp" ]
         then
             echo "NoResponse!"
-            sleep 3s
             rm -f $tmp
+            sleep 3s
             continue
         else
             rm -f $tmp
@@ -35,8 +34,15 @@ function login_network {
     done
 }
 
-echo "[Usage: userName, password[default: 111111]]"
-read -p "userName:" userName
-echo "If you would like to use default value (111111) just Press Enter instead."
-read -p "password:" password
+clear
+echo "Using a fixed account to login - simulating browser login process."
+tput setaf 6
+echo "[Usage: UserName, Password[default: 111111]]"
+tput sgr0
+echo
+read -p "UserName:" userName
+tput setaf 6
+echo "Press Enter to use default password 111111"
+tput sgr0
+read -p "Password:" password
 login_network $userName $password

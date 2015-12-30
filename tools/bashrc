@@ -1,0 +1,19 @@
+#alias for frequently used bash commands
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias la='ls -alh'
+
+# alias for virsh pool frequently used operations
+alias vpl='virsh pool-list --all'
+alias vpu='virsh pool-undefine'
+alias vpd='virsh pool-destroy'
+alias vps='virsh pool-start'
+alias vpdx='virsh pool-dumpxml'
+
+# alias for virsh freqenently used operations
+alias vl='virsh list --all'
+alias vu='virsh undefine'
+alias vd='virsh destroy'
+alias vdx='virsh dumpxml'
+alias vs='virsh start'

@@ -3,6 +3,12 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias la='ls -alh'
+alias cn='cat /dev/null > '
+
+# alias for virsh volume frequently used commands
+alias vvl='virsh vol-list --all'
+alias vvd='virsh vol-delete'
+alias vvdx='virsh vol-dumpxml'
 
 # alias for virsh pool frequently used operations
 alias vpl='virsh pool-list --all'
@@ -17,3 +23,10 @@ alias vu='virsh undefine'
 alias vd='virsh destroy'
 alias vdx='virsh dumpxml'
 alias vs='virsh start'
+
+# alia for virsh network frequenctly used operations
+alias vnl='virsh net-list --all'
+alias vnd='virsh net-destroy'
+alias vndx='virsh net-dumpxml'
+
+

@@ -1,0 +1,11 @@
+{
+    "server":"us01-54.ssv7.net", 
+    "server_port":24548, 
+    "local_address": "127.0.0.1",
+    "local_port":1080,
+    "password":"zSnsazyumwpe", 
+    "timeout":600,
+    "method":"aes-256-cfb",
+    "fast_open": false,
+    "workers": 1
+}

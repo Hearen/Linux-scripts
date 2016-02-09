@@ -1,4 +1,4 @@
 #!/usr/bin/expect
 spawn su 
-expect "Password:" { send "your_password"}
+expect "Password:" { send "520 Noodle"}
 interact

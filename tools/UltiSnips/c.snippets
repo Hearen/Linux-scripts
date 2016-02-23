@@ -7,3 +7,36 @@ Description : ${0}
 Source      : ${1}
 *******************************************/
 endsnippet
+
+snippet max "define MAX directive" 
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+endsnippet
+
+snippet min "define MIN directive" 
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+endsnippet
+
+snippet LN "structure of struct ListNode" 
+struct ListNode
+{
+	int val;
+	struct ListNode *next;
+};
+endsnippet
+
+snippet ln "struct ListNode" -i
+struct ListNode
+endsnippet
+
+snippet TN "structure of TreeNode"
+struct TreeNode
+{
+	int val;
+	struct TreeNode *left, *right;
+};
+endsnippet
+
+snippet tn "struct TreeNode" -i
+struct TreeNode
+endsnippet
+

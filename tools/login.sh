@@ -5,7 +5,7 @@
 ##########################
 #When using DHCP login process is quite essential to access external network
 function login_network {
-    userName=$1
+    userName="luosonglei14"
     password=${2-111111}
     while [ 1 ]
     do

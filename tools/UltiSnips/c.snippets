@@ -2,7 +2,7 @@ snippet sig "Add personal signature"
 /*******************************************
 Author      : LHearen
 E-mail      : LHearen@126.com
-Time        : `!v strftime("%Y-%m-%d %H:%M")`
+Time        : `!v strftime("%a, %d %b %Y %H:%M %Z")`
 Description : ${0}
 Source      : ${1}
 *******************************************/
@@ -40,3 +40,64 @@ snippet tn "struct TreeNode" -i
 struct TreeNode
 endsnippet
 
+snippet I "structure of Interval"
+struct Interval
+{
+	int start;
+	int end;
+};
+endsnippet
+
+snippet i "struct Interval" -i
+struct Interval
+endsnippet
+
+snippet WD "structure of WordDictionary"
+struct WordDictionary
+{
+	char **words;
+	int size;
+};
+endsnippet
+
+snippet wd "struct WordDictionary" -i
+struct WordDictionary
+endsnippet
+
+snippet TRN "structure of TrieNode"
+struct TrieNode
+{
+	bool isWord;
+	struct TrieNode **children;
+};
+endsnippet
+
+snippet trn "structure of TrieNode" -i
+struct TrieNode
+endsnippet
+
+snippet UG "structure of UndirectedGraphNode"
+struct UndirectedGraphNode
+{
+	int label;
+	struct UndirectedGraphNode **neighbors;
+	int neighborsCount;
+};
+endsnippet
+
+snippet ug "struct of UndirectedGraphNode" -i
+struct UndirectedGraphNode
+endsnippet
+
+snippet RLN "structure of RandomListNode"
+struct RandomListNode
+{
+	int label;
+	struct RandomListNode *next;
+	struct RandomListNode *random;
+};
+endsnippet
+
+snippet rln "struct RandomListNode" -i
+struct RandomListNode
+endsnippet

@@ -1,8 +1,9 @@
-* Author: LHearen
-* E-mail: LHearen@126.com
-
 # Linux-scripts
 Used to automate some big tasks in linux environment
+
+##### Author: LHearen
+##### E-mail: LHearen@gmail.com
+
 
 # ISOMaker Introduction
 ##################################################

@@ -19,25 +19,26 @@ function check_network {
 }
 
 function send_logout_request {
-    tmp=$(mktemp tmp_logout.XXX)
     t=$(date +%s)
-    echo "curl http://133.133.133.150/ajaxlogout?_t=$t >$tmp"
-    curl http://133.133.133.150/ajaxlogout?_t=$t >$tmp
-    echo "Logout request sent successfully!"
+    echo "Trying to send logout request..."
+    curl http://133.133.133.150/ajaxlogout?_t=$t >/dev/null
     echo
-    rm -f $tmp
 }
 
 function logout_network {
-    send_logout_request
-    return_code=`check_network "cn.bing.com"`
-    if [ $return_code -eq 200 ]
-    then 
-        echo "Failed logging out!"
-        echo "Try again later"
-    else
-        echo "Log out successfully!"
-    fi
+    while [ 1 ]
+    do
+        send_logout_request
+        return_code=`check_network "cn.bing.com"`
+        if [ $return_code -eq 200 ]
+        then 
+            echo "Failed! retry in 1 second"
+            sleep 1
+        else
+            echo "Log out successfully!"
+            break
+        fi
+    done
 }
 
 logout_network

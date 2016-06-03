@@ -3,33 +3,38 @@
 # Author: LHearen 
 # E-mail: LHearen@126.com 
 ##########################
-#When using DHCP login process is quite essential to access external network
+
+#############################
+#Using a given test site to
+#Check the network and return
+#Http code 200 - okay
+#############################
+function check_network {
+   test_site=$1
+   timeout_max=2    #seconds before time out
+   return_code=`curl -o /dev/null/ --connect-timeout $timeout_max -s -w %{http_code} $test_site`
+   echo $return_code
+}
+
+
+#Log in to access external network in ISCAS
 function login_network {
-    userName="luosonglei14"
-    password=${2-111111}
+    userName=$1
+    password=$2
     while [ 1 ]
     do
-        tmp=$(mktemp curlTmp.XXX)
-        echo "curl -d 'username=$userName&password=$password&pwd=$password&secret=true' http://133.133.133.150/webAuth/ >$tmp 2>/dev/null"
-        curl -d "username=$userName&password=$password&pwd=$password&secret=true" http://133.133.133.150/webAuth/ >$tmp 2>/dev/null
-        result=$(cat $tmp | sed -n '/authfailed/p')
-        if [ ! -s "$tmp" ]
+        return_code=$(check_network "baidu.com")
+        if [ $return_code -eq 200 ]
         then
-            echo "NoResponse!"
-            rm -f $tmp
-            sleep 3s
-            continue
+            tput setaf 2
+            echo "Network available"
+            tput sgr0
+            break
         else
-            rm -f $tmp
-            if [ -n "$result" ]
-            then
-                echo "AuthFailed!"
-                echo "Hint: in this case, you either have already logged in or you are using a wrong account."
-                break
-            else
-                echo "Successfully log in!!"
-                break
-            fi
+            echo "Connection error"
+            echo "Trying to fix it..."
+            curl -d "username=$userName&password=$password&pwd=$password&secret=true" http://133.133.133.150/webAuth/ 1>/dev/null 2>/dev/null
+            sleep 1
         fi
     done
 }
@@ -37,11 +42,13 @@ function login_network {
 clear
 echo "Using a fixed account to login - simulating browser login process."
 tput setaf 6
-echo "[Usage: UserName, Password[default: 111111]]"
+echo "[Usage: UserName[default: luosonglei14], Password[default: 111111]]"
 tput sgr0
 read -p "UserName:" userName
+userName=${userName:-"luosonglei14"}
 tput setaf 6
 echo "Press Enter to use default password 111111"
 tput sgr0
 read -p "Password:" password
+password=${password:-"111111"}
 login_network $userName $password

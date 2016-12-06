@@ -29,7 +29,7 @@ tput sgr0
 read -n1 confirm
 
 tmp_file=`mktemp tmp.XXX`
-times=$(($times*2+1))
+times=$(($times*2+2))
 
 date
 echo "Start to magnify $src_file to $des_file ..."

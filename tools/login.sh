@@ -52,3 +52,6 @@ tput sgr0
 read -p "Password:" password
 password=${password:-"111111"}
 login_network $userName $password
+            
+# If there is no connection available, try to copy the following commented line
+#curl -d "username=luosonglei14&password=111111&pwd=111111&secret=true" http://133.133.133.150/webAuth/ 1>/dev/null 2>/dev/null

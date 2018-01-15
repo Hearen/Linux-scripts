@@ -1,0 +1,35 @@
+#!/usr/bin/expect
+
+set folderPath "/home/hearen/Downloads"
+set curPwd "morphling"
+set sqlPwd "postgres"
+spawn sudo -i -u postgres;
+expect "password" { send "$curPwd\r" }
+expect "postgres@" { send "psql\r" }
+expect "Password:" { send "$sqlPwd\r" }
+expect "postgres=#" {
+    send "SELECT pg_terminate_backend (pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'resource_controller';\r" }
+expect "postgres=#" {
+    send "DROP DATABASE resource_controller;\r"
+}
+
+expect "postgres=#" {
+    send "CREATE DATABASE resource_controller OWNER resource_controller ENCODING 'UTF8' LC_COLLATE 'en_US.utf8' LC_CTYPE 'en_US.utf8' TEMPLATE template0;\r"
+}
+expect "postgres=#" {
+    send "GRANT ALL ON ALL TABLES IN SCHEMA public TO resource_controller;\r"
+}
+expect "postgres=#" {
+    send " GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO resource_controller;\r "
+}
+expect "postgres=#" {
+    send "GRANT ALL ON ALL FUNCTIONS IN SCHEMA public TO resource_controller;\r"
+}
+expect "postgres=#" {
+    send "\\q\r"
+}
+
+expect "postgres@" { send "gunzip < `ls -tr $folderPath/*.gz | tail -n1` | psql resource_controller\r" }
+expect "Password" { send "$sqlPwd\r" }
+
+interact
